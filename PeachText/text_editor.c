@@ -22,11 +22,13 @@ int currentLine = 0;
 
 HWND hMainWnd;
 
+
 void update_caret_pos(HDC hdc) {
 	static TEXTMETRIC tm;
 	GetTextMetrics(hdc, &tm);
 	int lineHeight = tm.tmHeight + LINE_PADDING;
 	
+
 	char* s1 = calloc(50, sizeof(char));
 	sprintf(s1, "%i: (%i, %i)", usedStringLength, currentXOffset, currentLine);
 	TextOutA(hdc, 0, 370, s1, strlen(s1));
@@ -35,16 +37,26 @@ void update_caret_pos(HDC hdc) {
 	if (pLD != NULL && pLD->numLines > 0) {
 		char* line = *(pLD->lines + currentLine);
 
-		static SIZE size;
-		int pxOffset = GetTextExtentPoint32A(hdc, line, currentXOffset, &size);
+		int tabWidth = 8 * tm.tmAveCharWidth;
+		int numTabPositions = 20;
+		int* tabPositions = calloc(numTabPositions, sizeof(int));
+		for (int i = 0; i < numTabPositions; i++) {
+			*(tabPositions + i) = tabWidth * i;
+		}
+
+		DWORD textExtent = GetTabbedTextExtentA(hdc, line, currentXOffset, numTabPositions, tabPositions);
+		int lineWidth = LOWORD(textExtent);
+
+		free(tabPositions);
+
 
 		char* s = calloc(50, sizeof(char));
-		sprintf(s, "%i, %i", size.cx, lineHeight * (currentLine));
+		sprintf(s, "%i, %i", lineWidth, lineHeight * (currentLine));
 		TextOutA(hdc, 0, 400, s, strlen(s));
 		free(s);
 
 		
-		SetCaretPos(size.cx, lineHeight * (currentLine));
+		SetCaretPos(lineWidth, lineHeight * (currentLine));
 
 		if (line != NULL) {
 			char c = *(line + currentXOffset - 1);

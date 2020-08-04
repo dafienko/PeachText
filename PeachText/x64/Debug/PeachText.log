@@ -1,18 +1,6 @@
-﻿  main.c
-C:\Users\dafie\source\repos\PeachText\PeachText\main.c(28,37): warning C4047: '=': 'WNDPROC' differs in levels of indirection from 'WNDPROC (__cdecl *)(HWND,UINT,WPARAM,LPARAM)'
-C:\Users\dafie\source\repos\PeachText\PeachText\main.c(37,23): warning C4047: '=': 'UINT' differs in levels of indirection from 'void *'
-C:\Users\dafie\source\repos\PeachText\PeachText\main.c(40,32): warning C4047: 'function': 'DWORD' differs in levels of indirection from 'void *'
-C:\Users\dafie\source\repos\PeachText\PeachText\main.c(40,32): warning C4024: 'CreateWindowExW': different types for formal and actual parameter 1
-C:\Users\dafie\source\repos\PeachText\PeachText\main.c(25,8): warning C4101: 'wndSize': unreferenced local variable
-C:\Users\dafie\source\repos\PeachText\PeachText\main.c(85,22): warning C4244: 'return': conversion from 'WPARAM' to 'int', possible loss of data
-C:\Users\dafie\source\repos\PeachText\PeachText\main.c(121,55): warning C4047: 'return': 'WNDPROC' differs in levels of indirection from 'LRESULT'
-C:\Users\dafie\source\repos\PeachText\PeachText\main.c(146,21): warning C4244: 'function': conversion from 'WPARAM' to 'char', possible loss of data
-C:\Users\dafie\source\repos\PeachText\PeachText\main.c(156,14): warning C4013: 'render_text' undefined; assuming extern returning int
-C:\Users\dafie\source\repos\PeachText\PeachText\main.c(179,54): warning C4047: 'return': 'WNDPROC' differs in levels of indirection from 'LRESULT'
-  text_editor.c
-C:\Users\dafie\source\repos\PeachText\PeachText\text_editor.c(32,38): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\dafie\source\repos\PeachText\PeachText\text_editor.c(43,37): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
-  Generating Code...
+﻿  text_editor.c
+C:\Users\dafie\source\repos\PeachText\PeachText\text_editor.c(34,38): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dafie\source\repos\PeachText\PeachText\text_editor.c(55,37): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
   PeachTea.lib(shaders.obj) : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
 LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
 LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
